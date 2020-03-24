@@ -2,48 +2,6 @@ package main
 
 import "fmt"
 
-func d1() {
-	for i := 3; i > 0; i-- {
-		defer fmt.Print(i, " ")
-	}
-}
-
-func d2() {
-	for i := 3; i > 0; i-- {
-		defer func() {
-			fmt.Print(i, " ")
-		}()
-	}
-	fmt.Println()
-}
-
-func d3() {
-	for i := 3; i > 0; i-- {
-		defer func(n int) {
-			fmt.Print(n, " ")
-		}(i)
-	}
-}
-
-func a() {
-	fmt.Println("Inside a()")
-	defer func() {
-		if c := recover(); c != nil {
-			fmt.Println("Recover inside a()!")
-		}
-	}()
-	fmt.Println("About to call b()")
-	b()
-	fmt.Println("b() exited!")
-	fmt.Println("Exiting a()")
-}
-
-func b() {
-	fmt.Println("Inside b()")
-	panic("Panic in b()!")
-	fmt.Println("Exiting b()")
-}
-
 func rangeTest() {
 	anArray := [5]int{0, 1, -1, 2, -2}
 	// 对一个数组使用range关键字会返回两个值：一个是数组的索引，一个是该索引上的值。
@@ -84,9 +42,6 @@ func sliceTest2() {
 }
 
 func main() {
-	// d3()
-	// a()
-	// fmt.Println("main() ended!")
 	// rangeTest()
 	// sliceTest()
 	sliceTest2()
