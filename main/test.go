@@ -1,6 +1,7 @@
 package main
 
 import (
+	"LearnGO/slice"
 	"fmt"
 	"time"
 )
@@ -8,6 +9,7 @@ import (
 const s string = "constant"
 
 func main() {
+	fmt.Println(slice.GetFive())
 	fmt.Println("GO")
 	var e int
 	fmt.Println(e)
